@@ -9,7 +9,7 @@ import subprocess
 # Author: Christoph Riess, November 2020, WUR
 ###############
 
-path = '/path/to/your/dir' # parent dir for data
+path = '/path/to/your/dir/' # parent dir for data
 
 year = '2020' #year of data
 month = '07' # month of data as 2-digit
@@ -31,7 +31,7 @@ for i in range(1,days+1):
     #remove tar file
     print('Remove leftover files for day: '+day)
     subprocess.call('rm '+data_path+'tropomi_no2_'+year+month+day+'.tar',shell=True)
-    #remove all files withdata outside europe, defined by crossing time
+    #remove all files withdata outside region, defined by crossing time
     # for j in ['00','01','02','03','04','05','06','15','16','17','18','19','20','21','22','23']:
     #     files_to_delete = sorted(glob.glob(data_path+'*'+'_NO2____'+year+month+day+'T'+j+'*'))
     #     for file in files_to_delete:
