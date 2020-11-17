@@ -9,11 +9,11 @@ import subprocess
 # Author: Christoph Riess, November 2020, WUR
 ###############
 
-path = '/path/to/your/dir/data/tropomi/' # parent dir for data
+path = '/path/to/your/dir/' # parent dir for data
 
 year = '2020' #year of data
 month = '07' # month of data as 2-digit
-data_path = path+year+'/'+month+'/'
+data_path = path+'data/'+'tropomi/'+year+'/'+month+'/'
 
 # # loop over all days in month
 days = monthrange(int(year),int(month))[1]
@@ -22,7 +22,7 @@ for i in range(1,days+1):
 
     #get data as tar file from web
     print('Download data of day: '+day)
-    get_data_str = 'wget -A '+day+'.tar -P /path/to/your/dir/ --cut-dirs=2 -r -l1 -nH -N -a "logfile" http://www.temis.nl/airpollution/no2col/data/tropomi/'+year+'/'+month+'/'
+    get_data_str = 'wget -A '+day+'.tar -P '+path+' --cut-dirs=2 -r -l1 -nH -N -a "logfile" http://www.temis.nl/airpollution/no2col/data/tropomi/'+year+'/'+month+'/'
     subprocess.call(get_data_str, shell=True)
     # un-tar file
     print('Un-tar data of day: '+day)
