@@ -22,7 +22,7 @@ for i in range(1,days+1):
 
     #get data as tar file from web
     print('Download data of day: '+day)
-    get_data_str = 'wget -A '+day+'.tar -P '+path+' --cut-dirs=2 -r -l1 -nH -N -a "logfile" http://www.temis.nl/airpollution/no2col/data/tropomi/'+year+'/'+month+'/'
+    get_data_str = 'wget -A .tar -P '+path+' --cut-dirs=2 -r -l1 -nH -N -a "logfile" http://d1qb6yzwaaq4he.cloudfront.net/tropomi/no2/'+year+'/'+month+'/tropomi_no2_'+year+month+day+'.tar'
     subprocess.call(get_data_str, shell=True)
     # un-tar file
     print('Un-tar data of day: '+day)
